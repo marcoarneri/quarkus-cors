@@ -1,4 +1,4 @@
-package org.acme.rest.model;
+package org.acme.adapter.rest.model;
 
 import lombok.Builder;
 import lombok.Data;

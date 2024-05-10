@@ -1,4 +1,4 @@
-package org.acme.rest.model;
+package org.acme.adapter.rest.model;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

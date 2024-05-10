@@ -1,24 +1,24 @@
-package org.acme.rest.controller;
+package org.acme.adapter.rest.controller;
 
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import org.acme.mapper.MapperCliente;
-import org.acme.rest.model.ClienteRequest;
-import org.acme.rest.model.ClienteResponse;
-import org.acme.rest.model.GenericResponse;
-import org.acme.rest.service.ClienteService;
-import org.acme.rest.service.model.ClienteRequestDto;
-import org.acme.rest.service.model.ClienteResponseDto;
+import org.acme.adapter.rest.mapper.MapperCliente;
+import org.acme.adapter.rest.model.ClienteRequest;
+import org.acme.adapter.rest.model.ClienteResponse;
+import org.acme.adapter.rest.model.GenericResponse;
+import org.acme.domain.ports.ClienteService;
+import org.acme.domain.service.ClienteServiceImpl;
+import org.acme.domain.service.model.ClienteRequestDto;
+import org.acme.domain.service.model.ClienteResponseDto;
 import org.jboss.resteasy.reactive.RestResponse;
 
 import java.util.List;
 
 import static jakarta.ws.rs.core.Response.Status.CREATED;
 import static jakarta.ws.rs.core.Response.Status.OK;
-import static org.hibernate.engine.spi.Status.DELETED;
 
 @Path("/clients")
 @ApplicationScoped

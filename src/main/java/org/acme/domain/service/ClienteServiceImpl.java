@@ -1,4 +1,4 @@
-package org.acme.rest.service;
+package org.acme.domain.service;
 
 import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.quarkus.hibernate.reactive.panache.common.WithTransaction;
@@ -6,16 +6,17 @@ import io.quarkus.panache.common.Parameters;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.acme.mapper.MapperCliente;
-import org.acme.repository.ClienteRepository;
-import org.acme.repository.entity.ClienteEntity;
-import org.acme.rest.service.model.ClienteRequestDto;
-import org.acme.rest.service.model.ClienteResponseDto;
+import org.acme.adapter.repository.entity.ClienteEntity;
+import org.acme.adapter.rest.mapper.MapperCliente;
+import org.acme.domain.ports.ClienteRepository;
+import org.acme.domain.ports.ClienteService;
+import org.acme.domain.service.model.ClienteRequestDto;
+import org.acme.domain.service.model.ClienteResponseDto;
 
 import java.util.List;
 
 @ApplicationScoped
-public class ClienteService {
+public class ClienteServiceImpl implements ClienteService {
 
     @Inject
     private ClienteRepository clienteRepository;
@@ -23,6 +24,7 @@ public class ClienteService {
     @Inject
     private MapperCliente mapperCliente;
 
+    @Override
     @WithSession
     public Uni<ClienteResponseDto> getCliente(Long id){
         return clienteRepository.findById(id)
@@ -36,12 +38,14 @@ public class ClienteService {
                 });
     }
 
+    @Override
     @WithSession
     public Uni<List<ClienteResponseDto>> getClienti(){
         return clienteRepository.findAll()
                 .list().map(mapperCliente::toResponseDtoList);
     }
 
+    @Override
     @WithSession
     @WithTransaction
     public Uni<Void> save(ClienteRequestDto requestDto){
@@ -49,12 +53,14 @@ public class ClienteService {
         return clienteRepository.persist(entity).replaceWithVoid();
     }
 
+    @Override
     @WithSession
     @WithTransaction
     public Uni<Void> delete(Long id){
         return clienteRepository.deleteById(id).replaceWithVoid();
     }
 
+    @Override
     @WithSession
     @WithTransaction
     public Uni<Void> update(ClienteRequestDto requestDto){

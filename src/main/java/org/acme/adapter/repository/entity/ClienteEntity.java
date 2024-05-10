@@ -1,4 +1,4 @@
-package org.acme.repository.entity;
+package org.acme.adapter.repository.entity;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import jakarta.persistence.Column;

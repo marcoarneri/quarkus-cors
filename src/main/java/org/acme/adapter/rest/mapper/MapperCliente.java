@@ -1,10 +1,10 @@
-package org.acme.mapper;
+package org.acme.adapter.rest.mapper;
 
-import org.acme.repository.entity.ClienteEntity;
-import org.acme.rest.model.ClienteRequest;
-import org.acme.rest.model.ClienteResponse;
-import org.acme.rest.service.model.ClienteRequestDto;
-import org.acme.rest.service.model.ClienteResponseDto;
+import org.acme.adapter.repository.entity.ClienteEntity;
+import org.acme.adapter.rest.model.ClienteRequest;
+import org.acme.adapter.rest.model.ClienteResponse;
+import org.acme.domain.service.model.ClienteRequestDto;
+import org.acme.domain.service.model.ClienteResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;

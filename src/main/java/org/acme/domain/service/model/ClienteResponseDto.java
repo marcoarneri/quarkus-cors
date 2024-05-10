@@ -1,4 +1,4 @@
-package org.acme.rest.service.model;
+package org.acme.domain.service.model;
 
 import lombok.Data;
 

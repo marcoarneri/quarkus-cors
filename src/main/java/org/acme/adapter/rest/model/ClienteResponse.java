@@ -1,9 +1,9 @@
-package org.acme.rest.service.model;
+package org.acme.adapter.rest.model;
 
 import lombok.Data;
 
 @Data
-public class ClienteRequestDto {
+public class ClienteResponse {
 
     private Long id;
 
